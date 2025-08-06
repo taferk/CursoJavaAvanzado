@@ -15,19 +15,19 @@ El curso está dividido en módulos temáticos:
 
 | Módulo | Tema                              | Descripción breve                        |
 |--------|-----------------------------------|------------------------------------------|
-| 1      | Programación Orientada a Objetos  | Herencia, polimorfismo, interfaces       |
-| 2      | Colecciones y Streams             | Listas, mapas, filtros, operaciones      |
-| 3      | Concurrencia                      | Threads, ExecutorService, sincronización |
-| 4      | Patrones de Diseño                | Singleton, Factory, Strategy, Observer   |
-| 5      | Java y Bases de Datos             | JDBC, JPA, Hibernate                     |
-| 6      | Testing y Buenas Prácticas        | JUnit, Mockito, Clean Code               |
+| 1      | Programación con Sockets          | Librerías nativas de sockets             |
+| 2      | Acceso a bases de datos           | Acceso a bases de datos con JDBC         |
+| 3      | Programacion de aplicaciones Web  | Programación de sitios web               |
+| 4      | Servlets y JSP                    | Sitios web con Servlets y JSP            |
+| 5      | Servicios Web                     | Servicios Web en Java                    |
+| 6      | Expresiones Lambda                | Uso de expresiones lambda                |
+| 7      | Tests Unitarios                   | Creación de tests unitarios con JUnit    |
 
-## 🛠️ Requisitos
+## 🛠️ Requisitos recomendados
 
 - Java JDK 17 o superior
-- IDE recomendado: IntelliJ IDEA o Eclipse
-- Maven o Gradle instalado
-
+- IDE recomendado: Eclipse
+- Tomcat 10.0.1
 ## 📦 Instalación
 
 ```bash
