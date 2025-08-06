@@ -28,7 +28,7 @@ El curso está dividido en módulos temáticos:
 
 ## 📚 Ejercicios del Curso
 
-El curso contiene cuatro ejercicios generales:
+El curso incluye cuatro ejercicios generales:
 
 | Ejer.  | Título                            | Enlace                                   |
 |--------|-----------------------------------|------------------------------------------|
