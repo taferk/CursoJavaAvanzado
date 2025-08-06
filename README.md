@@ -15,7 +15,7 @@ El curso está dividido en módulos temáticos:
 
 | Ejerc. | Título                            | Enlace                                   |
 |--------|-----------------------------------|------------------------------------------|
-| 1      | Robot HTML                        | [Ejercicio 1]([https://](https://taferk.github.io/site/index.html)             |
+| 1      | Robot HTML                        | [Ejercicio 1](https://taferk.github.io/CursoJavaAvanzado/site/index.html)             |
 
 
 ## 📚 Ejercicios del Curso
