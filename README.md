@@ -26,7 +26,7 @@ El curso está dividido en módulos temáticos:
 | 7      | Tests Unitarios                   | Creación de tests unitarios con JUnit    |
 
 
-## 🛠️ Ejercicios del Curso
+## 📚 Ejercicios del Curso
 
 El curso contiene cuatro ejercicios generales:
 
@@ -35,7 +35,7 @@ El curso contiene cuatro ejercicios generales:
 | 1      | Crear un robot HTML               | [Página de prueba](https://taferk.github.io/CursoJavaAvanzado/site/index.html)                         |
 
 
-## 📚 Requisitos recomendados
+## 🛠️ Requisitos recomendados
 
 - Java JRE 11 o superior
 - IDE recomendado: Eclipse
