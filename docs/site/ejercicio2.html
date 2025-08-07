@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Resumen - Ejercicio 2 Java Avanzado</title>
-  <link rel="stylesheet" href="css/bulma.css">
+  <title>Guía del Ejercicio 2 - Java Avanzado</title>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/site.css" />
+	<link rel="stylesheet" type="text/css" href="css/bulma.css" />
 </head>
 <body>
 	<div id="body" class="content-body">
@@ -11,51 +13,78 @@
 		    <img src="images/logo_curso_128.png" alt="logo-curso-java" class="image is-128x128 is-pulled-left" />
 		    <div class="column is-11 mt-5 has-text-centered">
                 <h1 class="title is-3" style="color:chocolate !important">Curso de Java Avanzado</h1>
-                <p class="subtitle is-5">Ejercicio 2 - Creación de una aplicación Web</p>
+                <p class="subtitle is-5">Ejercicio 1 - Primera parte: extracción de la información</p>
 		    </div>
     	</div>
   <section class="section">
     <div class="container">
-      <h1 class="title">Resumen del Ejercicio 2</h1>
+      <h1 class="title">Guía para realizar el Ejercicio 2</h1>
       <h2 class="subtitle">Curso: Programación orientada a objetos - Java avanzado</h2>
 
       <div class="content">
-        <p><strong>Autores:</strong> Jorge Molinero Muñoz, Miguel Sallent Sánchez</p>
+        <h3 class="title is-4">🎯 Objetivo</h3>
+        <p>Ampliar la aplicación web para que cada <strong>Cliente</strong> pueda tener una lista de <strong>Pedidos</strong>. Se implementarán nuevas vistas, controladores y validaciones.</p>
 
-        <h3 class="title is-4">Objetivo</h3>
-        <p>Ampliar el ejercicio anterior para que la clase <code>Cliente</code> gestione una lista de <code>Pedidos</code>.</p>
-
-        <h3 class="title is-4">Flujo de datos HTTP</h3>
-        <ol>
-          <li>Recoger datos con <code>request.getParameter</code>.</li>
-          <li>Procesar la información.</li>
-          <li>Guardar datos con <code>request.setAttribute</code>.</li>
-          <li>Redirigir con <code>forward</code> al JSP.</li>
-          <li>Acceder a los datos en el JSP con <code>${...}</code>.</li>
-        </ol>
-
-        <h3 class="title is-4">Pasos principales</h3>
+        <h3 class="title is-4">🛠️ Paso 1: Ampliación del modelo de dominio</h3>
         <ul>
-          <li><strong>Paso 1:</strong> Añadir clase <code>Pedido</code> y modificar <code>Cliente</code>.</li>
-          <li><strong>Paso 2:</strong> Adaptar <code>ClienteDao</code> con patrón Singleton.</li>
-          <li><strong>Paso 3:</strong> Actualizar cliente sin perder pedidos.</li>
-          <li><strong>Paso 4:</strong> Añadir enlace “Pedidos” en listado de clientes.</li>
-          <li><strong>Paso 5:</strong> Crear <code>PedidoController</code> y vista <code>listadoPedidos.jsp</code>.</li>
-          <li><strong>Paso 6:</strong> Implementar inserción de pedidos con <code>pedido.jsp</code>.</li>
-          <li><strong>Paso 7:</strong> Realizar pruebas con múltiples clientes y pedidos.</li>
-          <li><strong>Paso 8 (Opcional):</strong> Validar formularios con Bean Validation.</li>
+          <li>Crear clase <code>Pedido</code> con atributos <code>articulo</code> y <code>precio</code>.</li>
+          <li>Modificar clase <code>Cliente</code>:
+            <ul>
+              <li>Añadir <code>ArrayList&lt;Pedido&gt; pedidos</code>.</li>
+              <li>Eliminar <code>numPedidos</code> como atributo fijo.</li>
+              <li>Implementar <code>getNumPedidos()</code> como método calculado.</li>
+            </ul>
+          </li>
         </ul>
 
-        <h3 class="title is-4">Validaciones recomendadas</h3>
+        <h3 class="title is-4">🗃️ Paso 2: Adaptación del DAO</h3>
         <ul>
-          <li>Campos obligatorios.</li>
-          <li>Formato correcto de fecha y precio.</li>
-          <li>Validación en servidor para mayor seguridad.</li>
+          <li>Implementar patrón Singleton en <code>ClienteDao</code>.</li>
+          <li>Usar <code>getInstance()</code> para obtener la instancia única desde los controladores.</li>
         </ul>
 
-        <p>Para más información sobre Bean Validation, se recomienda consultar la documentación oficial de Jakarta Bean Validation API.</p>
+        <h3 class="title is-4">👤 Paso 3: Creación y actualización de clientes</h3>
+        <ul>
+          <li>Eliminar campo <code>numPedidos</code> del formulario <code>cliente.jsp</code>.</li>
+          <li>Modificar <code>ClienteController</code> para no sobrescribir el cliente completo al actualizar.</li>
+        </ul>
+
+        <h3 class="title is-4">📋 Paso 4: Modificación de la vista inicial</h3>
+        <ul>
+          <li>En <code>listadoClientes.jsp</code>, añadir enlace “Pedidos” que apunte a <code>PedidoController?action=listado&amp;clienteId=X</code>.</li>
+          <li>La columna de número de pedidos seguirá funcionando gracias a <code>getNumPedidos()</code>.</li>
+        </ul>
+
+        <h3 class="title is-4">📦 Paso 5: Listado de pedidos</h3>
+        <ul>
+          <li>Crear <code>PedidoController</code> y vista <code>listadoPedidos.jsp</code>.</li>
+          <li>Mostrar datos del cliente y sus pedidos en una tabla con <code>&lt;c:forEach&gt;</code>.</li>
+          <li>Añadir enlace para insertar pedido.</li>
+        </ul>
+
+        <h3 class="title is-4">📝 Paso 6: Creación de pedidos</h3>
+        <ul>
+          <li>En <code>PedidoController</code>, manejar <code>action=insertar</code> en <code>doGet</code>.</li>
+          <li>Crear <code>pedido.jsp</code> con formulario para <code>articulo</code> y <code>precio</code>.</li>
+          <li>En <code>doPost</code>, añadir pedido al cliente y redirigir.</li>
+        </ul>
+
+        <h3 class="title is-4">✅ Paso 7: Pruebas</h3>
+        <ul>
+          <li>Insertar varios clientes y pedidos.</li>
+          <li>Verificar que los pedidos no se mezclan.</li>
+          <li>Comprobar que al actualizar un cliente no se pierden sus pedidos.</li>
+        </ul>
+
+        <h3 class="title is-4">🔒 Paso 8: Validaciones (Opcional)</h3>
+        <ul>
+          <li>Validar campos obligatorios, formato de fecha y precio.</li>
+          <li>Se recomienda usar Bean Validation (Hibernate Validator).</li>
+          <li>Mostrar mensajes de error en pantalla.</li>
+        </ul>
+
+        <p>Para más información sobre Bean Validation, consulta la documentación oficial de <a href="https://jakarta.ee/specifications/bean-validation/">Jakarta Bean Validation API</a>.</p>
       </div>
     </div>
   </section>
 </body>
-</html>
