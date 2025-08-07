@@ -23,35 +23,77 @@
       <h2 class="subtitle">Curso: Programación orientada a objetos</h2>
 
       <div class="box">
-        <h3 class="title is-4">🎯 Objetivo</h3>
-        <p>Crear una aplicación en Java que extraiga información de una página web ficticia con cotizaciones del IBEX 35 y la almacene en una base de datos SQLite.</p>
-      </div>
-
-      <div class="box">
-        <h3 class="title is-4">🔍 Parte 1: Extracción de información</h3>
+        <h3 class="title is-4">🎯 1. Objetivo</h3>
+        <p>Desarrollar una aplicación Java que:</p>
         <ul>
-          <li>Conectarse a la URL proporcionada: <a href="https://taferk.github.io/CursoJavaAvanzado/site/ejercicio1_ibex35.html">https://taferk.github.io/CursoJavaAvanzado/site/ejercicio1_ibex35.html</a></li>
-          <li>Extraer el nombre de la empresa y su última cotización desde la tabla con <code>id="id-listado-acciones"</code>.</li>
-          <li>Procesar el HTML usando expresiones regulares o métodos como <code>split</code>, <code>substring</code>, etc.</li>
-          <li>Mostrar los datos por consola para verificar la extracción.</li>
-        </ul>
-        <p class="mt-3"><strong>Expresiones recomendadas:</strong></p>
-        <pre><code>Pattern tableBodyPattern = Pattern.compile("&lt;table id=\\"id-listado-acciones\\".+?&lt;tbody&gt;(.+?)&lt;/tbody&gt;&lt;/table&gt;");
-Pattern trPattern = Pattern.compile("&lt;tr&gt;.+?&lt;a.+?&gt;(.+?)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;(.+?)&lt;/td&gt;.+?&lt;/tr&gt;");</code></pre>
-      </div>
-
-      <div class="box">
-        <h3 class="title is-4">🗃️ Parte 2: Almacenamiento en base de datos</h3>
-        <ul>
-          <li>Crear una base de datos SQLite con una tabla <strong>COTIZACIONES</strong>.</li>
-          <li>La tabla debe tener dos campos de tipo texto: <code>NOMBRE</code> y <code>ULTIMO</code>.</li>
-          <li>Eliminar los datos previos con <code>DELETE FROM COTIZACIONES</code>.</li>
-          <li>Insertar los 35 valores extraídos.</li>
-          <li>Verificar los datos usando DB Browser for SQLite.</li>
+          <li>Se conecte a una página web ficticia con cotizaciones del IBEX 35.</li>
+          <li>Extraiga el nombre de cada empresa y su última cotización.</li>
+          <li>Almacene estos datos en una base de datos SQLite.</li>
         </ul>
       </div>
 
-      <div class="notification is-info">
+      <div class="box">
+        <h3 class="title is-4">🔍 2. Primera parte: Extracción de información</h3>
+        <p>La aplicación debe conectarse a la URL proporcionada y analizar el HTML para extraer:</p>
+        <ul>
+          <li><strong>Nombre de la empresa</strong></li>
+          <li><strong>Última cotización</strong></li>
+        </ul>
+
+        <p class="mt-3">Puedes usar expresiones regulares o métodos como <code>split</code>, <code>substring</code>, etc.</p>
+
+        <article class="message is-warning">
+          <div class="message-header">
+            <p>Consejo</p>
+          </div>
+          <div class="message-body">
+            El HTML debe procesarse en una sola línea (sin saltos de línea) para facilitar el análisis.
+          </div>
+        </article>
+
+        <h4 class="title is-5 mt-5">📄 Expresiones Regulares Sugeridas</h4>
+        <p><strong>Extraer el &lt;tbody&gt; de la tabla:</strong></p>
+        <pre><code>Pattern tableBodyPattern = 
+Pattern.compile("&lt;table id=\\"id-listado-acciones\\".+?&lt;tbody&gt;(.+?)&lt;/tbody&gt;&lt;/table&gt;");
+Matcher tableBodyMatcher = tableBodyPattern.matcher(html.toString());</code></pre>
+
+        <p><strong>Extraer cada fila con nombre y cotización:</strong></p>
+        <pre><code>Pattern trPattern = 
+Pattern.compile("&lt;tr&gt;.+?&lt;a.+?&gt;(.+?)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;(.+?)&lt;/td&gt;.+?&lt;/tr&gt;");
+Matcher trMatcher = trPattern.matcher(tbody);
+while (trMatcher.find()) {
+    String nombre = trMatcher.group(1);
+    String cotizacion = trMatcher.group(2);
+    System.out.println(nombre + ": " + cotizacion);
+}</code></pre>
+      </div>
+
+      <div class="box">
+        <h3 class="title is-4">🗃️ 3. Segunda parte: Almacenamiento en base de datos</h3>
+        <p>Crear una base de datos SQLite con una tabla llamada <strong>COTIZACIONES</strong>:</p>
+        <ul>
+          <li>Campos: <code>NOMBRE</code> y <code>ULTIMO</code>, ambos de tipo texto.</li>
+          <li>Puede crearse manualmente con DB Browser for SQLite.</li>
+        </ul>
+
+        <h4 class="title is-5 mt-4">📌 Pasos del programa Java</h4>
+        <ol>
+          <li>Extraer los datos como en la primera parte.</li>
+          <li>Ejecutar <code>DELETE FROM COTIZACIONES</code> para limpiar la tabla.</li>
+          <li>Insertar los 35 valores con sentencias <code>INSERT INTO</code>.</li>
+        </ol>
+
+        <article class="message is-info mt-5">
+          <div class="message-header">
+            <p>Verificación</p>
+          </div>
+          <div class="message-body">
+            Comprobar en DB Browser que los 35 valores se han insertado correctamente.
+          </div>
+        </article>
+      </div>
+
+      <div class="notification is-success">
         <strong>📦 Entrega:</strong> Código fuente del proyecto (Eclipse), base de datos con los valores insertados, todo en un archivo ZIP.
       </div>
     </div>
