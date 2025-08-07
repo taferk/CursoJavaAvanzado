@@ -32,7 +32,7 @@ El curso incluye cuatro ejercicios generales:
 
 | Ejercicios | Título                            | Enlace                                   |
 |------------|-----------------------------------|------------------------------------------|
-| 1          | Crear un robot HTML               | [Página de prueba](https://taferk.github.io/CursoJavaAvanzado/site/index.html)|
+| 1          | Crear un robot HTML               | [Página de prueba](https://taferk.github.io/CursoJavaAvanzado/site/ejercicio1.html)|
 | 2          | Crear una Web de Pedidos          | [Explicación detallada](https://taferk.github.io/CursoJavaAvanzado/site/ejercicio2.html)|
 
 
