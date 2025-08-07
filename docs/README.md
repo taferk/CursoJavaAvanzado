@@ -30,9 +30,10 @@ El curso está dividido en módulos temáticos:
 
 El curso incluye cuatro ejercicios generales:
 
-| Ejer.  | Título                            | Enlace                                   |
-|--------|-----------------------------------|------------------------------------------|
-| 1      | Crear un robot HTML               | [Página de prueba](https://taferk.github.io/CursoJavaAvanzado/site/index.html)                         |
+| Ejercicios | Título                            | Enlace                                   |
+|------------|-----------------------------------|------------------------------------------|
+| 1          | Crear un robot HTML               | [Página de prueba](https://taferk.github.io/CursoJavaAvanzado/site/index.html)|
+| 2          | Crear una Web de Pedidos          | [Explicación detallada](https://taferk.github.io/CursoJavaAvanzado/site/ejercicio2.html)|
 
 
 ## 🛠️ Requisitos recomendados
