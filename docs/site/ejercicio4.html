@@ -18,89 +18,55 @@
     	</div>
   <section class="hero is-fullheight is-dark">
     <div class="container">
-      <h1 class="title">Ejercicio 4: Streams, Lambdas y Pruebas Unitarias</h1>
-      <h2 class="subtitle">Curso: Programación orientada a objetos - Java avanzado</h2>
+      <h1 class="title has-text-primary">Guía del Ejercicio 4 - Java Avanzado</h1>
+      <p class="subtitle">Uso de Streams, Lambdas y Pruebas Unitarias</p>
 
       <div class="box">
-        <h3 class="title is-4">Autores</h3>
+        <h2 class="title is-4">🎯 Objetivos</h2>
         <ul>
-          <li>Jorge Molinero Muñoz</li>
-          <li>Miguel Sallent Sánchez</li>
+          <li>Aplicar programación funcional en Java</li>
+          <li>Usar <strong>streams</strong> y <strong>expresiones lambda</strong></li>
+          <li>Validar con <strong>JUnit</strong></li>
         </ul>
       </div>
 
       <div class="box">
-        <h3 class="title is-4">Índice</h3>
+        <h2 class="title is-4">🔧 Parte 1: Clase <code>Filtros</code></h2>
         <ol>
-          <li>Objetivo</li>
-          <li>Primera Parte: Streams y Expresiones Lambda</li>
-          <li>Segunda Parte: Pruebas Unitarias</li>
-          <li>Entrega</li>
+          <li><strong>Preparar entorno:</strong> Descarga clases base: <code>Ciudadano</code>, <code>Expediente</code>, etc.</li>
+          <li><strong>Crear clase:</strong> <code>Filtros</code> con métodos estáticos</li>
         </ol>
+
+        <h3 class="title is-5">🧪 Métodos con Streams</h3>
+        <ul>
+          <li><code>obtenerNifsCiudadanos</code>: <em>map → sorted → collect</em></li>
+          <li><code>obtenerIdsExpedientes</code>: <em>flatMap → map → sorted → collect</em></li>
+          <li><code>obtenerSalidasNoLeidas</code>: <em>flatMap → filter → sorted → collect</em></li>
+          <li><code>obtenerCodigosRegistroSalidasNoLeidas</code>: <em>flatMap → filter → map → sorted(reverse) → collect</em></li>
+        </ul>
+        <p><strong>Nota:</strong> Todos los métodos deben implementarse en <em>una sola sentencia</em>.</p>
       </div>
 
       <div class="box">
-        <h3 class="title is-4">Objetivo</h3>
-        <p>
-          Poner en práctica el uso de <strong>streams</strong> y <strong>expresiones lambda</strong> en Java, aplicados a un conjunto de clases que modelan expedientes de ciudadanos.
-        </p>
+        <h2 class="title is-4">🧪 Parte 2: Pruebas Unitarias</h2>
+        <ol>
+          <li><strong>Crear clase:</strong> <code>FiltrosTest</code> con JUnit</li>
+          <li><strong>Inicializar datos:</strong> con <code>@BeforeEach</code> o dentro de cada test</li>
+          <li><strong>Verificar:</strong> tamaño y contenido con <code>assertEquals</code>, <code>assertIterableEquals</code></li>
+        </ol>
+        <p>Incluye ciudadanos con múltiples expedientes y salidas leídas/no leídas.</p>
       </div>
 
-      <div class="box">
-        <h3 class="title is-4">Primera Parte: Streams y Expresiones Lambda</h3>
-        <p>Clases proporcionadas:</p>
+      <div class="notification is-info">
+        <h2 class="title is-4">📦 Entrega</h2>
         <ul>
-          <li><code>Ciudadano</code>: contiene lista de expedientes</li>
-          <li><code>Expediente</code>: contiene listas de entradas y salidas</li>
-          <li><code>EntradaRegistro</code></li>
-          <li><code>SalidaRegistro</code></li>
-        </ul>
-
-        <p>Clase a implementar: <code>Filtros</code> con métodos estáticos:</p>
-        <ul>
-          <li><strong>obtenerNifsCiudadanos</strong>: lista de NIFs ordenados alfabéticamente</li>
-          <li><strong>obtenerIdsExpedientes</strong>: lista de IDs de expedientes ordenados</li>
-          <li><strong>obtenerSalidasNoLeidas</strong>: lista de salidas no leídas ordenadas por título</li>
-          <li><strong>obtenerCodigosRegistroSalidasNoLeidas</strong>: lista de códigos de registro de salidas no leídas ordenados en orden descendente</li>
-        </ul>
-
-        <p>Requisitos:</p>
-        <ul>
-          <li>Uso obligatorio de <code>stream</code> y <code>lambda</code></li>
-          <li>Implementación en una sola sentencia por método</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <h3 class="title is-4">Segunda Parte: Pruebas Unitarias</h3>
-        <p>Clase a implementar: <code>FiltrosTest</code> con pruebas JUnit</p>
-        <ul>
-          <li>Una prueba por cada método de la clase <code>Filtros</code></li>
-          <li>Uso de <code>@BeforeEach</code> para inicializar datos comunes</li>
-          <li>Comprobaciones:
-            <ul>
-              <li>Que el número de elementos devueltos es el esperado</li>
-              <li>Que los elementos devueltos son correctos</li>
-            </ul>
-          </li>
-        </ul>
-
-        <p>Datos de prueba:</p>
-        <ul>
-          <li>Al menos dos ciudadanos</li>
-          <li>Uno con más de un expediente</li>
-          <li>Un expediente con múltiples entradas y salidas</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <h3 class="title is-4">Entrega</h3>
-        <ul>
-          <li>Proyecto Eclipse con todos los ficheros fuente</li>
-          <li>Formato ZIP o similar</li>
+          <li>Proyecto Eclipse completo</li>
+          <li>Archivo <code>.zip</code> con todos los ficheros fuente</li>
+          <li>Verifica que todos los métodos y pruebas estén implementados</li>
         </ul>
       </div>
     </div>
   </section>
 </body>
 </html>
+
