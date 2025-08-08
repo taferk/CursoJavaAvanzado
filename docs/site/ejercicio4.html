@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía Ejercicio 4 - Java Avanzado</title>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/site.css" />
+	<link rel="stylesheet" type="text/css" href="css/bulma.css" />
+</head>
+<body>
+	<div id="body" class="content-body">
+ 		<div class="hero is-fullwidth is-vcentered is-dark">
+		    <img src="images/logo_curso_128.png" alt="logo-curso-java" class="image is-128x128 is-pulled-left" />
+		    <div class="column is-11 mt-5 has-text-centered">
+                <h1 class="title is-3" style="color:chocolate !important">Curso de Java Avanzado</h1>
+                <p class="subtitle is-5">Ejercicio 2 - Aplicación de Gestión de Clientes y Pedidos</p>
+		    </div>
+    	</div>
+  <section class="hero is-fullheight is-dark">
+    <div class="container">
+      <h1 class="title">Ejercicio 4: Streams, Lambdas y Pruebas Unitarias</h1>
+      <h2 class="subtitle">Curso: Programación orientada a objetos - Java avanzado</h2>
+
+      <div class="block">
+        <h3 class="title is-4">Autores</h3>
+        <ul>
+          <li>Jorge Molinero Muñoz</li>
+          <li>Miguel Sallent Sánchez</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Índice</h3>
+        <ol>
+          <li>Objetivo</li>
+          <li>Primera Parte: Streams y Expresiones Lambda</li>
+          <li>Segunda Parte: Pruebas Unitarias</li>
+          <li>Entrega</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Objetivo</h3>
+        <p>
+          Poner en práctica el uso de <strong>streams</strong> y <strong>expresiones lambda</strong> en Java, aplicados a un conjunto de clases que modelan expedientes de ciudadanos.
+        </p>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Primera Parte: Streams y Expresiones Lambda</h3>
+        <p>Clases proporcionadas:</p>
+        <ul>
+          <li><code>Ciudadano</code>: contiene lista de expedientes</li>
+          <li><code>Expediente</code>: contiene listas de entradas y salidas</li>
+          <li><code>EntradaRegistro</code></li>
+          <li><code>SalidaRegistro</code></li>
+        </ul>
+
+        <p>Clase a implementar: <code>Filtros</code> con métodos estáticos:</p>
+        <ul>
+          <li><strong>obtenerNifsCiudadanos</strong>: lista de NIFs ordenados alfabéticamente</li>
+          <li><strong>obtenerIdsExpedientes</strong>: lista de IDs de expedientes ordenados</li>
+          <li><strong>obtenerSalidasNoLeidas</strong>: lista de salidas no leídas ordenadas por título</li>
+          <li><strong>obtenerCodigosRegistroSalidasNoLeidas</strong>: lista de códigos de registro de salidas no leídas ordenados en orden descendente</li>
+        </ul>
+
+        <p>Requisitos:</p>
+        <ul>
+          <li>Uso obligatorio de <code>stream</code> y <code>lambda</code></li>
+          <li>Implementación en una sola sentencia por método</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Segunda Parte: Pruebas Unitarias</h3>
+        <p>Clase a implementar: <code>FiltrosTest</code> con pruebas JUnit</p>
+        <ul>
+          <li>Una prueba por cada método de la clase <code>Filtros</code></li>
+          <li>Uso de <code>@BeforeEach</code> para inicializar datos comunes</li>
+          <li>Comprobaciones:
+            <ul>
+              <li>Que el número de elementos devueltos es el esperado</li>
+              <li>Que los elementos devueltos son correctos</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>Datos de prueba:</p>
+        <ul>
+          <li>Al menos dos ciudadanos</li>
+          <li>Uno con más de un expediente</li>
+          <li>Un expediente con múltiples entradas y salidas</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Entrega</h3>
+        <ul>
+          <li>Proyecto Eclipse con todos los ficheros fuente</li>
+          <li>Formato ZIP o similar</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

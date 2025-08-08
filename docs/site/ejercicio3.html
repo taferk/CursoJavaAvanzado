@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía Ejercicio 3 - Java Avanzado</title>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/site.css" />
+	<link rel="stylesheet" type="text/css" href="css/bulma.css" />
+</head>
+<body>
+	<div id="body" class="content-body">
+ 		<div class="hero is-fullwidth is-vcentered is-dark">
+		    <img src="images/logo_curso_128.png" alt="logo-curso-java" class="image is-128x128 is-pulled-left" />
+		    <div class="column is-11 mt-5 has-text-centered">
+                <h1 class="title is-3" style="color:chocolate !important">Curso de Java Avanzado</h1>
+                <p class="subtitle is-5">Ejercicio 2 - Aplicación de Gestión de Clientes y Pedidos</p>
+		    </div>
+    	</div>
+  <section class="hero is-fullheight is-dark">
+    <div class="container">
+      <h1 class="title">Ejercicio 3: Servicio Web y Cliente</h1>
+      <h2 class="subtitle">Curso: Programación orientada a objetos - Java avanzado</h2>
+
+      <div class="block">
+        <h3 class="title is-4">Autores</h3>
+        <ul>
+          <li>Jorge Molinero Muñoz</li>
+          <li>Miguel Sallent Sánchez</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Índice</h3>
+        <ol>
+          <li>Introducción</li>
+          <li>Primera Parte: Servidor</li>
+          <li>Segunda Parte: Cliente</li>
+          <li>Entrega del Ejercicio</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Introducción</h3>
+        <p>
+          Se parte del servicio web del Tema 5 que permite obtener, crear y editar ciudadanos.
+          El objetivo es ampliar el API con un método de borrado, modificando dos proyectos Eclipse: Servidor y Cliente.
+        </p>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Primera Parte: Servidor</h3>
+
+        <h4 class="title is-5">Paso 1: Modificación del DAO</h4>
+        <ul>
+          <li>Clase: <code>CiudadanosDAO</code></li>
+          <li>Método: <code>deleteCiudadano(int id)</code></li>
+          <li>Características:
+            <ul>
+              <li>Argumento: ID del ciudadano</li>
+              <li>No devuelve nada</li>
+              <li>Borra el ciudadano si existe</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4 class="title is-5">Paso 2: Modificación del API</h4>
+        <ul>
+          <li>Clase: <code>CiudadanoAPI</code></li>
+          <li>Método: <code>delete</code> con anotaciones <code>@Path</code>, <code>@PathParam</code>, <code>@DELETE</code></li>
+          <li>URL: <code>/api/ciudadano/{id}</code> usando método HTTP DELETE</li>
+        </ul>
+
+        <h4 class="title is-5">Paso 3: Prueba con SoapUI</h4>
+        <ul>
+          <li>Crear nuevo proyecto REST</li>
+          <li>Importar nuevo WADL</li>
+          <li>Realizar peticiones DELETE y GET</li>
+          <li>Capturar pantallas para entrega</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Segunda Parte: Cliente</h3>
+
+        <h4 class="title is-5">Paso 4: Modificación del API</h4>
+        <ul>
+          <li>Clase: <code>ConsumidorCiudadanoAPI</code></li>
+          <li>Método: <code>delete(int id)</code></li>
+          <li>Devuelve: <code>true</code> si la operación es correcta</li>
+          <li>Uso de <code>webTarget</code> y <code>invocation builder</code></li>
+        </ul>
+
+        <h4 class="title is-5">Paso 5: Prueba del Cliente</h4>
+        <ul>
+          <li>Leer ciudadanos y mostrarlos</li>
+          <li>Borrar el primero si la lista no está vacía</li>
+          <li>Volver a leer y mostrar ciudadanos</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3 class="title is-4">Entrega del Ejercicio</h3>
+        <ul>
+          <li>ZIP del proyecto Eclipse del Servidor</li>
+          <li>ZIP del proyecto Eclipse del Cliente</li>
+          <li>Documento con capturas de SoapUI</li>
+          <li>Entrega completa, no clases sueltas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
