@@ -26,13 +26,7 @@ El curso está dividido en módulos temáticos:
 | 7      | Tests Unitarios                   | Creación de tests unitarios con JUnit    |
 
 
-## 📚 Ejercicios del Curso
-
-El curso incluye cuatro ejercicios generales:
-
-| Ejer.  | Título                            | Enlace                                   |
-|--------|-----------------------------------|------------------------------------------|
-| 1      | Crear un robot HTML               | [Página de prueba](https://taferk.github.io/CursoJavaAvanzado/site/ejercicio1_ibex35.html)                         |
+- [Página de ejercicio del curso](https://taferk.github.io/CursoJavaAvanzado/)                         |
 
 
 ## 🛠️ Requisitos recomendados
