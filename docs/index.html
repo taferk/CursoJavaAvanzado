@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Java Avanzado</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #ffffff !important;
+}
+
+body.dark-mode a {
+  color: #90caf9 !important;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .card-footer-item {
+  color: #90caf9 !important;
+}
+
+body.dark-mode .button {
+  background-color: #2196f3 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .button:hover {
+  background-color: #1976d2 !important;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+}
+
+body.dark-mode table {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode th {
+  background-color: #2c2c2c !important;
+}
+
+body.dark-mode td {
+  border: 1px solid #444 !important;
+  </style>
+  
+  
+</head>
+<body>
+
+
+  <!-- Hero -->
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <!-- Logo a la izquierda -->
+        <div class="column is-narrow">
+          <figure class="image is-96x96">
+            <img src="site/images/logo_cja.png" alt="Logo del Curso Java Avanzado">
+          </figure>
+        </div>
+        <!-- Título y subtítulo a la derecha -->
+        <div class="column has-text-centered">
+          <h1 class="title">Curso de Java Avanzado</h1>
+          <h2 class="subtitle">Domina las tecnologías modernas con Java</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Temario -->
+<section class="section" id="temario">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Temario</h2>
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">🔌 Programación con Sockets</p>
+            <p><strong>Objetivo:</strong> Establecer comunicación entre aplicaciones mediante sockets TCP/IP.</p>
+            <p><strong>Duración:</strong> 2 horas · <strong>Dificultad:</strong> Intermedio</p>
+            <p>Aprende a crear servidores multicliente, manejar conexiones y enviar datos en red usando las librerías nativas de Java.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">🗃️ Acceso a Bases de Datos</p>
+            <p><strong>Objetivo:</strong> Conectar aplicaciones Java con bases de datos relacionales usando JDBC.</p>
+            <p><strong>Duración:</strong> 2 horas · <strong>Dificultad:</strong> Intermedio</p>
+            <p>Domina el acceso a MySQL o PostgreSQL, ejecuta consultas SQL y realiza operaciones CRUD de forma segura y eficiente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">🌐 Aplicaciones Web con Java</p>
+            <p><strong>Objetivo:</strong> Desarrollar sitios web dinámicos con Java.</p>
+            <p><strong>Duración:</strong> 3 horas · <strong>Dificultad:</strong> Intermedio</p>
+            <p>Aprende a manejar formularios, sesiones y bases de datos para crear sistemas interactivos como registros e inicios de sesión.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">🧩 Servlets y JSP</p>
+            <p><strong>Objetivo:</strong> Construir sitios web robustos con Java EE.</p>
+            <p><strong>Duración:</strong> 3 horas · <strong>Dificultad:</strong> Avanzado</p>
+            <p>Aprende a manejar peticiones HTTP, generar contenido dinámico y estructurar aplicaciones web siguiendo el patrón MVC.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">☁️ Servicios Web</p>
+            <p><strong>Objetivo:</strong> Crear APIs REST en Java.</p>
+            <p><strong>Duración:</strong> 3 horas · <strong>Dificultad:</strong> Intermedio</p>
+            <p>Implementa servicios web que intercambien datos en formato JSON, usando métodos HTTP y buenas prácticas de diseño de APIs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">⚙️ Expresiones Lambda</p>
+            <p><strong>Objetivo:</strong> Escribir código funcional y conciso en Java.</p>
+            <p><strong>Duración:</strong> 2.5 horas · <strong>Dificultad:</strong> Intermedio</p>
+            <p>Domina el uso de expresiones lambda y Streams para procesar colecciones de datos de forma eficiente y elegante.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-5">🧪 Tests Unitarios</p>
+            <p><strong>Objetivo:</strong> Validar funcionalidades mediante pruebas automatizadas.</p>
+            <p><strong>Duración:</strong> 1.5 horas · <strong>Dificultad:</strong> Básico</p>
+            <p>Aprende a crear pruebas unitarias con JUnit, usar aserciones y automatizar la verificación del comportamiento del código.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Ejercicios Generales -->
+  <section class="section" id="ejercicios">
+    <div class="container">
+      <h2 class="title is-4 has-text-centered">Ejercicios Generales</h2>
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">🤖 Crear un robot HTML</p>
+              <p>Diseña una página interactiva que simule el comportamiento de un robot usando HTML, CSS y JavaScript.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="site/ejercicio1.html" target="_blank" class="card-footer-item">Ver ejercicio</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">👥 Gestión de Clientes y Pedidos</p>
+              <p>Desarrolla una aplicación completa que permita registrar clientes, gestionar pedidos y visualizar reportes.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="site/ejercicio2.html" target="_blank" class="card-footer-item">Ver ejercicio</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">☁️ Servicio Web y Cliente</p>
+              <p>Implementa un servicio REST en Java y crea un cliente que consuma sus endpoints.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="site/ejercicio3.html" target="_blank" class="card-footer-item">Ver ejercicio</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">🧪 Streams y Tests</p>
+              <p>Completa una aplicación que procese datos usando Streams y expresiones Lambda, incluyendo pruebas unitarias con JUnit.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="site/ejercicio3.html" target="_blank" class="card-footer-item">Ver ejercicio</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p><strong>Curso Java Avanzado</strong> por Aurelio. © 2025</p>
+      <p>
+        <a href="#">Contacto</a> ·
+        <a href="#">Política de privacidad</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
