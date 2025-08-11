@@ -26,7 +26,7 @@ El curso está dividido en módulos temáticos:
 | 7      | Tests Unitarios                   | Creación de tests unitarios con JUnit    |
 
 
-- [Página de ejercicio del curso](https://taferk.github.io/CursoJavaAvanzado/)                         |
+[Página de ejercicio del curso](https://taferk.github.io/CursoJavaAvanzado/)
 
 
 ## 🛠️ Requisitos recomendados
