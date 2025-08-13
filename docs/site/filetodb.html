@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía interactiva - Ejemplo JDBC</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script>
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('is-hidden');
+    }
+  </script>
+</head>
+<body>
+  <!-- Hero -->
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <!-- Logo a la izquierda -->
+        <div class="column is-narrow">
+          <figure class="image is-96x96">
+            <img src="images/logo_cja.png" alt="Logo del Curso Java Avanzado">
+          </figure>
+        </div>
+        <!-- Título y subtítulo a la derecha -->
+        <div class="column has-text-centered">
+          <h1 class="title">Curso de Java Avanzado</h1>
+          <h2 class="subtitle">Domina las tecnologías modernas con Java</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="section">
+    <div class="container">
+
+      <h1 class="title">🧭 Guía del ejemplo del tema 2: <code>Persistencia con JDBC</code></h1>
+      <p class="subtitle">Ejemplo: <strong>FileToDB</strong></p>
+
+      <div class="box">
+        <button class="button is-info is-light" onclick="toggleSection('librerias')">📦 Librerías utilizadas en el ejemplo</button>
+ 	<div id="librerias" class="content is-hidden mt-3">
+        <ul>
+              <li><strong>java.io.File</strong>: Manejo de archivos CSV.</li>
+              <li><strong>java.util.Scanner</strong>: Lectura línea por línea.</li>
+              <li><strong>java.sql.*</strong>: Conexión y operaciones con base de datos.</li>
+              <li><strong>ProxyDBDriverLoader</strong>: Carga dinámica del driver JDBC desde propiedades.</li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="box">
+        <button class="button is-primary is-light" onclick="toggleSection('explicacion')">🧩 Explicación del ejemplo paso a paso</button>
+	<div id="explicacion" class="content is-hidden mt-3">        
+    		<p>El programa realiza la carga de datos desde un archivo CSV a una base de datos utilizando JDBC. A continuación se detallan los bloques principales:</p>
+
+            <ol>
+              <li>
+        	<strong>Importaciones</strong>
+              <pre><code>import java.io.File;
+import java.sql.*;
+import java.util.Scanner;</code></pre>
+              <p>Importa clases para archivos, base de datos y lectura de texto.</p>
+            </li>
+
+           <li>
+        	<strong>Definición de constantes y archivo</strong>
+              <pre><code>final String PROPERTIES_FILE = "EjercicioJDBCFile.properties";
+String fileImport = "c:/desarrollo/cursojava/clientes.dat";
+File file = new File(fileImport);</code></pre>
+              <p>Define rutas de configuración y archivo CSV.</p>
+            </li>
+
+            <li>
+        	<strong>Verificación de existencia del archivo</strong>
+              <pre><code>if (!file.exists()) {
+  System.err.println("El archivo de importación no existe: " + fileImport);
+  return;
+}</code></pre>
+              <p>Evita errores si el archivo no está disponible.</p>
+            </li>
+
+            <li>
+        	<strong>Lectura del archivo y carga del driver JDBC</strong>
+              <pre><code>try (Scanner scanner = new Scanner(file)) {
+  ProxyDBDriverLoader loaderJDBC = new ProxyDBDriverLoader(PROPERTIES_FILE);
+  DriverManager.registerDriver(loaderJDBC.getDriver());</code></pre>
+              <p>Lee el archivo y registra el driver JDBC.</p>
+            </li>
+
+            <li>
+        	<strong>Conexión a la base de datos</strong>
+              <pre><code>try (Connection conn = DriverManager.getConnection(loaderJDBC.getUrlDB())) {</code></pre>
+              <p>Establece conexión con la base de datos.</p>
+            </li>
+
+            <li>
+        	<strong>Lectura de cabecera y líneas del archivo</strong>
+              <pre><code>if (scanner.hasNextLine()) {
+  String header = scanner.nextLine();
+}
+while(scanner.hasNextLine()) {
+  String line = scanner.nextLine();
+  String[] parts = line.split(";");</code></pre>
+              <p>Omite la cabecera y separa los campos.</p>
+            </li>
+
+            <li>
+        	<strong>Formateo de fecha</strong>
+              <pre><code>String nacimiento = formatoFecha(parts[3].trim());</code></pre>
+              <p>Convierte fecha a formato SQL.</p>
+            </li>
+
+            <li>
+        	<strong>Inserción en la base de datos</strong>
+              <pre><code>String sqlInsert = "INSERT INTO Clientes (...) VALUES (?, ?, ?, ?, ?)";
+try (PreparedStatement stmInsert = conn.prepareStatement(sqlInsert)) {
+  stmInsert.setInt(1, Integer.parseInt(id));
+  ...
+  stmInsert.executeUpdate();
+}</code></pre>
+              <p>Inserta datos en la tabla <code>Clientes</code>.</p>
+            </li>
+
+            <li>
+        	<strong>Consulta de clientes filtrados</strong>
+              <pre><code>String sqlSelect = "SELECT * FROM Clientes WHERE NUM_PEDIDOS > 10 AND FECHA_NACIMIENTO < '1978-01-01'";
+try (Statement stmSelect = conn.createStatement()) {
+  var rs = stmSelect.executeQuery(sqlSelect);
+}</code></pre>
+              <p>Recupera clientes con más de 10 pedidos y nacidos antes de 1978.</p>
+            </li>
+
+            <li>
+        	<strong>Método auxiliar para formatear fechas</strong>
+              <pre><code>private static String formatoFecha(String fecha) {
+  String[] parts = fecha.split("/");
+  return parts[2] + "-" + parts[1] + "-" + parts[0];
+}</code></pre>
+              <p>Transforma fechas al formato <code>yyyy-mm-dd</code>.</p>
+            </li>
+
+        </div>
+      </div>
+     <div class="box">
+        <button class="button is-light is-link" onclick="toggleSection('comparativa')">🔄 Comparativa: JDBC vs otros métodos de acceso a datos</button>
+ <div id="comparativa" class="content is-hidden mt-3">        
+    <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Método</th>
+                  <th>Descripción</th>
+                  <th>Ventajas</th>
+                  <th>Desventajas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>JDBC</strong></td>
+                  <td>API estándar para interactuar directamente con bases de datos mediante SQL.</td>
+                  <td>
+                    <ul>
+                      <li>Control total sobre las sentencias SQL.</li>
+                      <li>Ligero y sin dependencias externas.</li>
+                      <li>Ideal para tareas simples y bajo nivel.</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Mayor cantidad de código repetitivo.</li>
+                      <li>No gestiona relaciones entre objetos.</li>
+                      <li>Propenso a errores si no se maneja bien.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>JPA</strong></td>
+                  <td>Especificación para el mapeo objeto-relacional (ORM), usada con Hibernate.</td>
+                  <td>
+                    <ul>
+                      <li>Reduce el código SQL manual.</li>
+                      <li>Gestión automática de relaciones y transacciones.</li>
+                      <li>Más mantenible en aplicaciones grandes.</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Curva de aprendizaje más alta.</li>
+                      <li>Menor control sobre SQL generado.</li>
+                      <li>Puede ser más pesado si no se configura bien.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Hibernate</strong></td>
+                  <td>Implementación popular de JPA con funcionalidades avanzadas de ORM.</td>
+                  <td>
+                    <ul>
+                      <li>Persistencia transparente de objetos Java.</li>
+                      <li>Soporte para caché, herencia y consultas HQL.</li>
+                      <li>Amplia comunidad y documentación.</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Mayor complejidad en configuración.</li>
+                      <li>Puede generar SQL no óptimo.</li>
+                      <li>Dependencia de librerías externas.</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p><strong>Conclusión:</strong> JDBC es ideal para tareas simples y control total, mientras que JPA/Hibernate son más adecuados para aplicaciones empresariales con estructuras complejas.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+</div>
+</section>
+</body>
+</html>
