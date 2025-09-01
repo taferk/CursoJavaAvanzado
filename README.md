@@ -1,39 +1,31 @@
-# 📘 CursoJavaAvanzado
+# 📘 Repositorio de Ejemplos de Java
 
-Bienvenido al repositorio del **Curso de Java Avanzado**. Este curso está diseñado para desarrolladores con conocimientos básicos de Java que desean profundizar en temas avanzados y mejorar sus habilidades en programación orientada a objetos, concurrencia, colecciones, y mucho más.
+Bienvenido al repositorio del **Curso de Java Avanzado**. Este repositorio contiene ejemplos interesantes de Java.
 
 
-## 🚀 Objetivos del Curso
+## 🚀 Objetivos del Repositorio
 
-- Dominar conceptos avanzados de Java
-- Aplicar patrones de diseño en proyectos reales
+- Ver aplicados conceptos avanzados de Java
+- Ejemplos del uso de patrones de diseño en proyectos reales
 - Trabajar con APIs modernas y herramientas del ecosistema Java
 - Mejorar la calidad del código y la arquitectura de aplicaciones
 
 
-## 📚 Contenido del Curso
+## 📚 Contenido del Repositorio
 
 El curso está dividido en módulos temáticos:
 
-| Módulo | Tema                              | Descripción breve                        |
+| Nº     | Tema                              | Descripción breve                        |
 |--------|-----------------------------------|------------------------------------------|
-| 1      | Programación con Sockets          | Librerías nativas de sockets             |
-| 2      | Acceso a bases de datos           | Acceso a bases de datos con JDBC         |
-| 3      | Programacion de aplicaciones Web  | Programación de sitios web               |
-| 4      | Servlets y JSP                    | Sitios web con Servlets y JSP            |
-| 5      | Servicios Web                     | Servicios Web en Java                    |
-| 6      | Expresiones Lambda                | Uso de expresiones lambda                |
-| 7      | Tests Unitarios                   | Creación de tests unitarios con JUnit    |
+| 1      | Ejemplos de tests unitarios       | Ejemplos del uso de Mockito              |
 
-
-[Página de ejercicios del curso](https://taferk.github.io/CursoJavaAvanzado/)
 
 
 ## 🛠️ Requisitos recomendados
 
 - Java JRE 11 o superior
 - IDE recomendado: Eclipse
-- Tomcat 10.1
+- Tomcat 10 o superior
 
 
 ## 📦 Instalación
