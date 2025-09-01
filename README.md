@@ -15,9 +15,9 @@ Bienvenido al repositorio del **Curso de Java Avanzado**. Este repositorio conti
 
 El curso está dividido en módulos temáticos:
 
-| Nº     | Tema                              | Descripción breve                        |
+| Nº     | Contenido                         | Descripción breve                        |
 |--------|-----------------------------------|------------------------------------------|
-| 1      | Ejemplos de tests unitarios       | Ejemplos del uso de Mockito              |
+| 1      | Ejemplos de tests unitarios       | Ejemplos con JUnit y Mockito             |
 
 
 
